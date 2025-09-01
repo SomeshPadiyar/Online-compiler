@@ -1,0 +1,256 @@
+  <!-- ======= Hero Section ======= -->
+  <section id="hero" class="d-flex align-items-center my-3">
+
+    <div class="container">
+      <div class="row gy-4">
+        <div class="col-lg-6 order-2 order-lg-1 d-flex flex-column justify-content-center">
+          <h1>Execute your code from anywhere or anytime</h1>
+          <h2>Making coding fun and easy</h2>
+          <div>
+            <a href="#about" class="btn-get-started scrollto">Get Started</a>
+          </div>
+        </div>
+        <div class="col-lg-6 order-1 order-lg-2 hero-img">
+          <img src="assets/img/hero-img.svg" class="img-fluid animated" alt="">
+        </div>
+      </div>
+    </div>
+
+  </section><!-- End Hero -->
+
+
+
+<!-- compiler -->
+  <!-- ======= Services Section ======= -->
+  <section id="services" class="services section-bg">
+    <div class="container" data-aos="fade-up">
+
+      <div class="section-title">
+        <h2>Online Compiler</h2>
+        <p>Check out the great services we offer</p>
+      </div>
+    </div>
+  </section><!-- End Services Section -->
+
+  <!-- ======= compiler Services Section ======= -->
+  <div class="row  mx-1 ">
+    <div class="col ">
+        <div class="d-flex justify-content-between mb-2 bg-dark rounded p-2">
+            <div class="col-12 w-25 ">
+                <label class="visually-hidden " for="inlineFormSelectPref">Preference</label>
+                <select class="form-select" id="inlineFormSelectPref">
+                    <!-- <option selected>Choose...</option> -->
+                    <option selected value="C/C++">C/C++</option>
+                    <option value="Java">Java</option>
+                    <option value="Python">Python</option>
+                </select>
+            </div>
+            <div>
+                <h4 class="text-white">Compiler</h4>
+            </div>
+            <div>
+
+              <!-- <button class="btn btn-success" onclick="copyText()">Copy Text</button> -->
+              <button class="btn btn-success mx-4 " onclick="saveData()">Save</button>
+              
+                <a type="button" class="navbar-brand text-white">Run code</a>
+
+                <button type="button" id="run" class="btn btn-success"><i class="bi bi-play-fill"></i></button>
+            </div>
+        </div>
+        <textarea type="text" id="editor" class="form-control" aria-label="First name"></textarea>
+    </div>
+    <div class="col d-flex flex-column rounded bg-dark px-4">
+        <div class="h-50">
+            <label for="Input" class="text-light">Input</label>
+            <textarea type="text" id="input" class="form-control h-75 mt-4 mb-2" aria-label="Last name"></textarea>
+        </div>
+        <div class="h-50">
+            <label for="Output" class="text-light">Output</label>
+            <textarea type="text" id="output" class="form-control h-75 mt-4 mb-2" aria-label="Last name"></textarea>
+        </div>
+
+    </div>
+  </div>
+
+
+  <!-- saving code -->
+  <div class="container">
+    <style>
+      textarea {
+          width: 100%;
+          height: 400px;  
+          resize: vertical;
+      }
+  </style>
+  <!-- <textarea id="textField" type="text" class="form-control" aria-label="First name" placeholder="Enter your text here..."></textarea> -->
+  <br>
+  <h1 class=" text-dark"  >Saved Code</h1>
+  <br>
+  <div id="savedData" ></div>
+<!-- new -->
+
+<script>
+let savedTexts = [];
+
+function saveData() {
+  const text =editor.getValue()
+  savedTexts.push(text);
+  displaySavedData();
+}
+
+function editData(index) {
+  document.getElementById("savedTextArea" + index).readOnly = false;
+}
+
+function deleteData(index) {
+  savedTexts.splice(index, 1);
+  displaySavedData();
+}
+
+function copyText() {
+  const textField = editor.getValue()
+  textField.select();
+  document.execCommand("copy");
+}
+
+function copySavedText(index) {
+  const textarea = document.getElementById("savedTextArea" + index);
+  textarea.select();
+  document.execCommand("copy");
+}
+
+function displaySavedData() {
+  const savedDataDiv = document.getElementById("savedData");
+  savedDataDiv.innerHTML = "";
+
+  if (savedTexts.length > 0) {
+      savedTexts.forEach((text, index) => {
+          const savedTextArea = document.createElement("textarea");
+          savedTextArea.id = "savedTextArea" + index;
+          savedTextArea.value = text;
+          savedTextArea.classList.add("saved-text");
+          savedTextArea.className="bg-dark text-light text-decoration-none  form-control-lg";
+          savedTextArea.readOnly = true;
+          savedDataDiv.appendChild(savedTextArea);
+          
+
+          const copyButton = document.createElement("button");
+          copyButton.textContent = "Copy";
+          copyButton.className = "btn btn-success ";
+          copyButton.onclick = function() { copySavedText(index); };
+          savedDataDiv.appendChild(copyButton);
+
+          const editButton = document.createElement("button");
+          editButton.textContent = "Edit";
+          editButton.className = "btn btn-success  mx-1  ";
+          editButton.onclick = function() { editData(index); };
+          savedDataDiv.appendChild(editButton);
+
+          const deleteButton = document.createElement("button");
+          deleteButton.textContent = "Delete";
+          deleteButton.className = "btn btn-success";
+          deleteButton.onclick = function() { deleteData(index); };
+          savedDataDiv.appendChild(deleteButton);
+
+          savedDataDiv.appendChild(document.createElement("br")); // Add line break
+          savedDataDiv.appendChild(document.createElement("br")); // Add line break
+          savedDataDiv.appendChild(document.createElement("br")); // Add line break
+      });
+  } else {
+      savedDataDiv.textContent = "No saved Code";
+  }
+}
+
+
+</script>
+
+  
+  </div>
+
+  <!-- javascript part -->
+ <!-- Vendor JS Files -->
+ <script src="assets/vendor/aos/aos.js"></script>
+ <script src="assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+ <script src="assets/vendor/glightbox/js/glightbox.min.js"></script>
+ <script src="assets/vendor/isotope-layout/isotope.pkgd.min.js"></script>
+ <script src="assets/vendor/swiper/swiper-bundle.min.js"></script>
+ <script src="assets/vendor/php-email-form/validate.js"></script>
+
+ <!-- Template Main JS File -->
+ <script src="assets/js/main.js"></script>
+
+ <script>
+   var editor = CodeMirror.fromTextArea(document.getElementById("editor"), {
+       mode: "text/x-c++src",
+       theme: "dracula",
+       lineNumbers: true,
+       autoCloseBrackets: true,
+
+   })
+   var width = window.innerWidth
+   var input = document.getElementById("input")
+   var output = document.getElementById("output")
+   var run = document.getElementById("run")
+   editor.setSize(0.7 * width, "500")
+
+   var option = document.getElementById("inlineFormSelectPref");
+   option.addEventListener("change", function () {
+       if (option.value == "Java") {
+           editor.setOption("mode", "text/x-java")
+       }
+       else if (option.value == "Python") {
+           editor.setOption("mode", "text/x-python")
+       }
+       else {
+           editor.setOption("mode", "text/x-c++src")
+       }
+   })
+
+   var code;
+   run.addEventListener("click", async function () {
+       code = {
+           code: editor.getValue(),
+           input: input.value,
+           lang: option.value
+       }
+       var oData = await fetch("http://localhost:5000/", {
+           method: "POST",
+           headers: {
+               "Content-Type": "application/json"
+           },
+           body: JSON.stringify(code)
+       })
+       var d = await oData.json()
+       output.value = d.output;
+   });
+</script>
+
+
+
+<!-- End Services Section -->
+
+
+<!-- other -->
+<section class="articles container1">
+  <h2 class="articles__heading">Latest Posts</h2>
+
+  <ul class="article-ul">
+    <% data.forEach(post => { %>
+      <li>
+        <a href="/post/<%= post._id %>">
+          <span><%= post.title %></span>
+          <span class="article-list__date"><%= post.createdAt.toDateString() %></span>
+        </a>
+      </li>
+    <% }) %>
+  </ul>
+
+
+  <% if (nextPage !== null) { %>
+    <a href="/?page=<%= nextPage %>" class="pagination">&lt; View Older Posts</a>
+  <% } %>
+ 
+
+</section>
+
