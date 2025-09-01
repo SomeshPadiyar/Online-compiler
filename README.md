@@ -2,7 +2,8 @@
 
 An **online compiler and collaborative coding platform** that allows users to write, execute, and learn programming together in real time. Built as a **B.Tech Major Project (2023–2024)**, it combines a compiler, collaboration tools, and a code management system into a single web-based solution.  
 
-![Project Banner](images/1.png)(images/2.png)<!-- Replace with actual image path from your repo -->
+![Project Banner 1](images/1.png)  
+![Project Banner 2](images/2.png)
 
 ---
 
