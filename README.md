@@ -2,7 +2,7 @@
 
 An **online compiler and collaborative coding platform** that allows users to write, execute, and learn programming together in real time. Built as a **B.Tech Major Project (2023–2024)**, it combines a compiler, collaboration tools, and a code management system into a single web-based solution.  
 
-![Project Banner](images/banner.png) <!-- Replace with actual image path from your repo -->
+![Project Banner](images/1.png) <!-- Replace with actual image path from your repo -->
 
 ---
 
@@ -47,8 +47,6 @@ An **online compiler and collaborative coding platform** that allows users to wr
 
 ## 📐 System Architecture  
 
-![System Architecture](images/system_architecture.png) <!-- Replace with actual image path -->
-
 The project follows a **three-tier architecture**:  
 1. **Frontend (Presentation Layer):** UI built with Bootstrap + CodeMirror.  
 2. **Backend (Application Layer):** Node.js + Express.js handling compiler APIs, authentication, and collaboration.  
@@ -60,9 +58,7 @@ The project follows a **three-tier architecture**:
 
 | Login / Signup | Code Editor | Search & Save | Collaboration |
 |----------------|-------------|---------------|---------------|
-| ![Login](images/login.png) | ![Editor](images/editor.png) | ![Search](images/search.png) | ![Collaboration](images/collaboration.png) |
-
-*(Update image paths according to your repo folder structure, e.g., `/assets/` or `/screenshots/`.)*  
+| ![Login](images/4.png) | ![Editor](images/2.png) | ![Search](images/3.png) | ![Collaboration](images/5.png) |
 
 ---
 
